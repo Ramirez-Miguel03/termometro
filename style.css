@@ -1,0 +1,167 @@
+*{
+    margin: 0px;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    font-size: 35px;
+    padding: 10px;
+    background-color: rgb(12, 42, 66);
+    color: aliceblue;
+    font-weight: roboto;
+}
+
+.termometro-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative; /* asegura que el botón tenga un contexto de apilamiento (cdcgpt) */
+  z-index: 1; /* asigna un valor más alto de z-index */
+   
+  }
+  .termometro {
+    width: 100px;
+    height: auto;
+  }
+
+  /* esto es el texto de la temperatura */
+  .temperatura-box {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .temperatura-texto {
+    font-weight: roboto;
+    font-size: 25px;
+    font-weight: bold;
+  }
+  .temperatura-numero {
+    font-size: 30px;
+  }
+  .actualizar-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 25px;
+    cursor: pointer;
+    position: relative; /* asegura que el botón tenga un contexto de apilamiento (cdcgpt) */
+  z-index: 1; /* asigna un valor más alto de z-index */
+  }
+  .actualizar-btn:hover {
+    background-color: #3e8e41;
+    
+  }
+
+
+  .termometro {
+    width: 100px;
+    height: 200px;
+    position: relative;
+  }
+  .termometro:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: red;
+    height: 0;
+    width: 100%;
+    transition: height 0.5s;
+  }
+  
+  .content {
+    flex: 1;
+  }
+  
+  
+  body {
+    height: 100vh;
+    background: linear-gradient(to bottom, skyblue, cornflowerblue);
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* estilos para las nubes */
+  .cloud.one {
+    top: 50%;
+    width: 300px;
+    height: 100px;
+    z-index: 0; /* asigna un valor más bajo de z-index */
+  }
+  
+  .cloud.two {
+    top: 30%;
+    width: 60px;
+    height: 20px;
+    animation-duration: 10s;
+    z-index: 0; /* asigna un valor más bajo de z-index */
+  }
+  
+  .cloud.three {
+    top: 20%;
+    width: 120px;
+    height: 40px;
+    animation-duration: 8s;
+    z-index: 0; /* asigna un valor más bajo de z-index */
+  }
+  
+  .cloud {
+    position: absolute;
+    left: 0;
+    background: white;
+    border-radius: 1000px;
+    animation: nubes 5s infinite linear;
+  }
+  
+  .cloud::before {
+    content: "";
+    position: absolute;
+    top: -80%;
+    left: 10%;
+    width: 50%;
+    height: 150%;
+    background: white;
+    border-radius: 50%;
+  }
+  
+  .cloud::after {
+    content: "";
+    position: absolute;
+    top: -40%;
+    right: 20%;
+    width: 30%;
+    height: 100%;
+    background: white;
+    border-radius: 50%;
+  }
+  
+  @keyframes nubes {
+    from {
+      left: 0;
+      transform: translateX(-100%);
+    }
+  
+    to {
+      left: 100%;
+      transform: translateX(0%);
+    }
+  }
+
+
+
+
+  /* pie de pagina  */
+  footer {
+    background-color: #f5f5f5;
+    padding: 10px;
+    text-align: center;
+    font-weight: arial;
+    font-size: 20px;
+  }
