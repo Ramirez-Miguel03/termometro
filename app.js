@@ -1,16 +1,12 @@
-document.querySelector('.actualizar-btn').addEventListener('click', function() {
-    actualizarTemperatura();
-  });
+const actualizarBtn = document.getElementById('actualizar-btn');
+const temperaturaNumero = document.querySelector('.temperatura-numero');
 
-  function actualizarTemperatura() {
-    // Código para obtener la temperatura actual del campo (puede ser a través de una API, por ejemplo)
-    var temperaturaActual = '20°C';
-    
-    // Actualiza el texto de la temperatura en el box
-    document.querySelector('.temperatura-numero').textContent = temperaturaActual;
-    
-    // Anima el termómetro para mostrar la temperatura actual
-    var alturaMercurio = parseFloat(temperaturaActual) * 2;
-    document.querySelector('.termometro').style.clip = 'rect(' + (200 - alturaMercurio) + 'px, 50px, 200px, 0)';
-  }
+actualizarBtn.addEventListener('click', () => {
+  fetch('https://x230vnbpw4.execute-api.us-east-2.amazonaws.com/test/arduino-termometro')
+    .then(response => response.json())
+    .then(data => {
+      temperaturaNumero.textContent = `${data.temperature}°C`;
+    })
+    .catch(error => console.error(error));
+});
   
